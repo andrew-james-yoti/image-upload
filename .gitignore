@@ -1,0 +1,4 @@
+.DS_Store
+
+# uploaded images
+server/public/images/uploads
