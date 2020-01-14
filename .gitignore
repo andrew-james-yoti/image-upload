@@ -1,4 +1,7 @@
 .DS_Store
 
 # uploaded images
-server/public/images/uploads
+server/public/images/upload
+
+#Node Modules
+node_moduless
