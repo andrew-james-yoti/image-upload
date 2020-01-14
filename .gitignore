@@ -1,7 +1,7 @@
 .DS_Store
 
 # uploaded images
-server/public/images/upload
+server/public/images/uploads
 
 #Node Modules
-node_moduless
+node_modules
