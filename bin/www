@@ -6,7 +6,10 @@
 
 var app = require('../server/app');
 var debug = require('debug')('image-upload:server');
+var fs = require('fs');
+const path = require('path');
 var http = require('http');
+var https = require('https');
 
 /**
  * Get port from environment and store in Express.
@@ -16,10 +19,14 @@ var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Create HTTP(S) server.
  */
+const opts = {
+    key: fs.readFileSync(path.resolve(__dirname, '../certs/localhost.key')),
+    cert: fs.readFileSync(path.resolve(__dirname, '../certs/localhost.cert')),
+}
 
-var server = http.createServer(app);
+var server = process.env.SECURE === 'true' ? https.createServer(opts, app) : http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -83,6 +90,7 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
+
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;

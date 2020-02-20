@@ -5,3 +5,8 @@ server/public/images/uploads
 
 #Node Modules
 node_modules
+
+# Certs
+certs
+
+.idea

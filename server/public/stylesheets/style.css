@@ -1,8 +1,29 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div {
+    padding: 0;
+    margin: 0;
 }
 
 a {
   color: #00B7FF;
+}
+
+#ypm-extension {
+    display: none;
+}
+
+.container {
+    padding: 5%;
 }
