@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/image-upload', upload.single('image'), (req, res) => {
+router.post('/image-upload', upload.single('file'), (req, res) => {
     res.status(200).json({ 'success': true });
 });
 
