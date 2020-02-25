@@ -1,17 +1,33 @@
+function handleResult(success) {
+    const loadedElement = document.querySelector('.file-loaded');
+
+    if (!loadedElement) {
+        console.error('No container element found');
+        return;
+    }
+
+    // do animation
+    loadedElement.classList.add(`${success ? 'success' : 'error'}`, 'leave', 'leave-active');
+
+    setTimeout(() => {
+        // clear animation
+        loadedElement.classList.remove(`${success ? 'success' : 'error'}`, 'leave', 'leave-active');
+    }, 1000)
+}
+
 function submitFile(file) {
-    console.log(file);
     const formData = new FormData();
     formData.append('file', file);
     const url = '/image-upload';
     const oReq = new XMLHttpRequest();
     oReq.open('POST', url);
     oReq.onload = function(oReqEvent) {
-        console.log('onload', oReqEvent);
+        handleResult(true);
+    }
+    oReq.onError = function(oReqEvent) {
+        handleResult(false);
     }
     oReq.send(formData);
-    
-    
-    return Promise.resolve();
 }
 
 function uploadFile(event) {
@@ -23,11 +39,7 @@ function uploadFile(event) {
         file
             .arrayBuffer()
             .then(() => {
-                submitFile(file)
-                    .then(() => {
-                        console.log('success');
-                    })
-                    .catch(console.error);
+                submitFile(file);
             })
             .catch(console.error);
     }
