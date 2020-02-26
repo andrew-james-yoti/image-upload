@@ -1,8 +1,60 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div {
+    padding: 0;
+    margin: 0;
 }
 
 a {
   color: #00B7FF;
+}
+
+#ypm-extension {
+    display: none;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 5%;
+    z-index: 2;
+}
+
+.success {
+    box-shadow: inset 0 0 25px 25px rgb(76,174,76);
+}
+
+.error {
+    box-shadow: inset 0 0 25px 25px rgb(254, 33, 13);
+}
+
+.file-loaded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.file-loaded.leave {
+    opacity: 0.5;
+    transition: opacity 1000ms ease-out;
+}
+
+.file-loaded.leave.leave-active {
+    opacity: 0;
 }

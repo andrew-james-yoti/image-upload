@@ -1,0 +1,8 @@
+version: '3'
+services:
+    web:
+        build: .
+        ports:
+            - "3000:3000"
+        volumes:
+            - ../test/public:/src/server/public/images/uploads

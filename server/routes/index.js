@@ -4,10 +4,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Upload File' });
 });
 
-router.post('/image-upload', upload.single('image'), (req, res) => {
+router.post('/image-upload', upload.single('file'), (req, res) => {
     res.status(200).json({ 'success': true });
 });
 
